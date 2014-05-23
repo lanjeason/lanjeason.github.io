@@ -1,0 +1,16 @@
+markdown: rdiscount
+permalink: /:title/
+url: 
+name: LanJeason's blog
+author: LanJeason
+qq: 635573486
+email: lanjeason@gmail.com
+duoshuo: LanJeason
+beian: 
+cnzz: 
+weibo: 814911203
+github: LanJeason
+pygments: true
+safe: true
+paginate: 20
+about: "这里是 LanJeason 的个人博客。"
