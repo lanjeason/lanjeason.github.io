@@ -1,7 +1,7 @@
 ---
 date: 2014-05-27 11:23:40
 layout: post
-title: [转载]通过JS 将阿拉伯数字每三位一逗号分隔
+title: 通过JS将阿拉伯数字每三位一逗号分隔
 thread: 5
 categories: JS little demo
 tags: 数值转化
@@ -76,7 +76,6 @@ function cutStr(num) {
             }
         }
     }
-
     alert(arr2.join(""));
 }
 cutStr(12345678);
