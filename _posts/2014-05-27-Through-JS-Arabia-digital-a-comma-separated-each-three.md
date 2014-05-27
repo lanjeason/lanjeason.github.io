@@ -3,7 +3,7 @@ date: 2014-05-27 11:23:40
 layout: post
 title: 通过JS将阿拉伯数字每三位一逗号分隔
 thread: 5
-categories: jsLittleDemo
+categories: js_little_demo
 tags: 数值转化
 ---
 
