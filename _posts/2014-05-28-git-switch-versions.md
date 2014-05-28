@@ -12,7 +12,7 @@ tags: Git
 ##查看当前仓库的状态
 目前看来，仓库有3种状态，分别如下：
 
-```hash
+```bash
 $ git status 
 # On branch master
 # Changes not staged for commit:
@@ -26,7 +26,7 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 说明版本库中git.txt文件已经修改，但是没有add至缓存区。
 
-```hash
+```bash
 $ git status
 # On branch master
 # Changes to be committed:
@@ -38,7 +38,7 @@ $ git status
 
 说明版本库中git.txt文件已经修改，已经add，但是没有commit正式提交
 
-```hash
+```bash
 $ git status
 # On branch master
 nothing to commit (working directory clean)
@@ -49,7 +49,7 @@ nothing to commit (working directory clean)
 ##查看版本之间的修改区别
 查看工作区和暂存区的区别
 
-```hash
+```bash
 $ git diff readme.txt 
 diff --git a/readme.txt b/readme.txt
 index 46d49bf..9247db6 100644
@@ -63,7 +63,7 @@ index 46d49bf..9247db6 100644
 
 查看工作区和版本库里面最新版本的区别
 
-```hash
+```bash
 $ git diff HEAD -- readme.txt 
 diff --git a/readme.txt b/readme.txt
 index 76d770f..a9c5755 100644
@@ -80,7 +80,7 @@ index 76d770f..a9c5755 100644
 ##版本切换
 详细查看版本提交日志
 
-```hash
+```bash
 $ git log
 commit 3628164fb26d48395383f8f31179f24e0882e1e0
 Author: Michael Liao <askxuefeng@gmail.com>
@@ -89,7 +89,7 @@ Date:   Tue Aug 20 15:11:49 2013 +0800
 
 简单查看版本提交日志(注意版本号的前7位，作为版本切换之用)
 
-```hash
+```bash
 $ git log --pretty=oneline
 3628164fb26d48395383f8f31179f24e0882e1e0 append GPL
 ea34578d5496d7dd233c827ed32a8cd576c5ee85 add distributed
@@ -98,7 +98,7 @@ cb926e7ea50ad11b8f9e909c05226233bf755030 wrote a readme file
 
 查看所有提交日志，因为之前的两个代码只能查看当前版本开始之前的各个版本，如果切换至原来的某个版本，逻辑上在此之后的版本不会显示，需要通过如下代码，查看所有提交的版本，切换更为方便：
 
-```hash
+```bash
 $ git reflog
 ea34578 HEAD@{0}: reset: moving to HEAD^
 3628164 HEAD@{1}: commit: append GPL
@@ -108,14 +108,14 @@ cb926e7 HEAD@{3}: commit (initial): wrote a readme file
 
 返回上一个版本
 
-```hash
+```bash
 $ git reset --hard HEAD^
 HEAD is now at ea34578 add distributed
 ```
 
 返回指定版本
 
-```hash
+```bash
 $ git reset --hard 3628164
 HEAD is now at 3628164 append GPL
 ```

@@ -7,7 +7,7 @@ categories: Git
 tags: Git
 ---
 
-```hash
+```bash
 $ git clone git@github.com:lanjeason/xxx.git
 Cloning into 'xxx'...
 remote: Counting objects: 3, done.

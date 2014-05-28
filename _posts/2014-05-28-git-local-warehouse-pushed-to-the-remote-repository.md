@@ -10,7 +10,7 @@ tags: Git
 ##一
 创建SSH Key。在用户主目录下，看看有没有.ssh目录，如果有，再看看这个目录下有没有id_rsa和id_rsa.pub这两个文件，如果已经有了，可直接跳到下一步。如果没有，打开Shell（Windows下打开Git Bash），创建SSH Key：
 
-```hash
+```bash
 $ ssh-keygen -t rsa -C "youremail@example.com"
 ```
 
@@ -20,14 +20,14 @@ $ ssh-keygen -t rsa -C "youremail@example.com"
 ##三
 在github上新建一个仓库，关联远程仓库
 
-```hash
+```bash
 $ git remote add origin git@github.com:lanjeason/xxx.git
 ```
 
 ##四
 把本地库的内容推送到远程，实际上是把当前分支master推送到远程，我们第一次推送master分支时，加上了-u参数
 
-```hash
+```bash
 $ git push -u origin master
 Counting objects: 19, done.
 Delta compression using up to 4 threads.
@@ -41,6 +41,6 @@ Branch master set up to track remote branch master from origin.
 
 之后就用此条推送
 
-```hash
+```bash
 $ git push origin master
 ```
