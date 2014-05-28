@@ -27,5 +27,5 @@ $ git add test.txt
 $ git commit -m "This is the first file to your git."
 ```
 
-即可上传至版本库中。
+即可上传至版本库中，默认的分支为master，之后会介绍分支的概念。
 <br/>如果之前add文件很多，$git commit -m 是将之前所有的add全部上传。
