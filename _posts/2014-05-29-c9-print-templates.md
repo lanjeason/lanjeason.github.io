@@ -70,3 +70,24 @@ api地址
 <br/>过程：
 已经完成物流公司的数据展现，目前正在设计新建物流绑定淘宝传过来的物流code。
 已经完成自定义物流公司code的选择绑定。
+<br/>总结动态选择框获取value值，涉及监听下拉列表click事件，提高性能。
+
+```javascript
+.done(function(data) {
+    for(i=0 ; i<data.root.length ; i++){
+        if(data.root[i].built_in == true){
+            var name = data.root[i].name;
+            var code = data.root[i].code;
+            var logisticCompaniesDom = "<option value='" + code + "'>" + name + "</option>";
+            $("#logistic_companies").append(logisticCompaniesDom);
+        };
+        if(data.root[i].code == document.getElementById("code").value){
+            document.getElementById("logistic_companies").value = document.getElementById("code").value;//编辑时可以直接获取当前code
+        }
+    };
+    document.getElementById("logistic_companies").addEventListener("click",function(e) {
+        var value = e.target.value;
+        document.getElementById("code").value = value;
+    });            
+})
+```
