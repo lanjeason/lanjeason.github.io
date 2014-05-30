@@ -70,7 +70,7 @@ api地址
 <br/>过程：
 已经完成物流公司的数据展现，目前正在设计新建物流绑定淘宝传过来的物流code。
 已经完成自定义物流公司code的选择绑定。
-<br/>总结动态选择框获取value值，涉及监听下拉列表click事件，提高性能。
+<br/>总结动态下拉框获取value值，涉及监听下拉列表click事件，提高性能。
 
 ```javascript
 .done(function(data) {
