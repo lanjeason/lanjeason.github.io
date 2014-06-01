@@ -1,7 +1,7 @@
 ---
 date: 2014-06-01 21:17:40
 layout: post
-title: 开发之外 -- 《node.js权威指南》
+title: 开发之外 -- 关于《node.js权威指南》
 thread: 12
 categories: node开发
 tags: node 书 
