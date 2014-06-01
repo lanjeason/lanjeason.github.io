@@ -87,7 +87,7 @@ api地址
     };
     document.getElementById("logistic_companies").addEventListener("click",function(e) {
         var value = e.target.value;
-        document.getElementById("code").value = value;
+        document.getElementById("code").value = value;//事件委托，提高性能
     });            
 })
 ```
