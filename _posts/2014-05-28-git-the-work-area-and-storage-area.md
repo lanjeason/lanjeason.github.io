@@ -1,5 +1,5 @@
 ---
-date: 2014-05-28 14:04:40
+date: 2014-05-28 14:04:40(UTC+0800)
 layout: post
 title: 入门Git -- 工作区和暂存区
 thread: 8

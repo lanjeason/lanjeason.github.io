@@ -1,5 +1,5 @@
 ---
-date: 2014-06-01 21:17:40
+date: 2014-06-01 21:17:40(UTC+0800)
 layout: post
 title: 开发之外 -- 关于《node.js权威指南》
 thread: 12

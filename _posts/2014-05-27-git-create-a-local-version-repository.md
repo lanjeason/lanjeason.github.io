@@ -1,5 +1,5 @@
 ---
-date: 2014-05-27 10:37:40
+date: 2014-05-27 10:37:40(UTC+0800)
 layout: post
 title: 入门Git -- 创建本地版本库
 thread: 4
