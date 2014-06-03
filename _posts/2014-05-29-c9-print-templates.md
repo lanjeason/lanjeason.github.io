@@ -108,4 +108,11 @@ api地址
 'module' object has no attribute 'TaobaoLogisticTemplate'
 ```
 
+更新：
+<br/>1、已完成数据新建、修改、获取的操作。
+<br/>2、待添加物流公司的选择，id和名称的转化，选择公司后载入物流单据图片。
+<br/>3、编辑需要获取field的text。
+<br/>4、像素和厘米的长度转化。
+
+
 
