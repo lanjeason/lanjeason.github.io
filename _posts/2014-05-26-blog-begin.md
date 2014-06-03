@@ -1,5 +1,5 @@
 ---
-date: 2014-05-26 15:18:40
+date: 2014-05-26 15:18:40(UTC+0800)
 layout: post
 title: 博客开通
 thread: 1

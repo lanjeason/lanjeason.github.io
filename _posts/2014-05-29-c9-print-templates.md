@@ -1,5 +1,5 @@
 ---
-date: 2014-05-29 12:54:40
+date: 2014-05-29 12:54:40(UTC+0800)
 layout: post
 title: C9开发日志 -- 快递单打印模版系统
 thread: 12
@@ -87,15 +87,16 @@ api地址
     };
     document.getElementById("logistic_companies").addEventListener("click",function(e) {
         var value = e.target.value;
-        document.getElementById("code").value = value;
+        document.getElementById("code").value = value;//事件委托，提高性能
     });            
 })
 ```
 
 <br/>下阶段任务：
-<br/>1、新建按钮直接获取fileds初始化状态，编辑获取已有模版数据，目前已经完成filed的拖动，后期还需要设定filed的拖动范围。
-<br/>2、图片载入通过动态下拉框选择载入。拖动后获取top、left、filedname等数据。
-<br/>3、获取图片的实际宽度和传入电脑中的像素值，获得厘米和像素的比例值，再通过像素比例缩放。最后传的数据是缩放后的像素*像素比*像素厘米比获得实际厘米值传至api。
+<br/>1、新建按钮直接获取fileds初始化状态，即获取filed的初始化api，编辑获取已有模版数据，即获取该id的template模版中filed对象的数据。的目前已经完成filed的拖动，后期还需要设定filed的拖动范围。
+<br/>2、图片载入通过动态下拉框选择载入。拖动后获取top、left、filedname等数据，更新或者上传api。
+<br/>3、获取图片的实际宽度和传入电脑中的像素值，获得厘米和像素的比例值，再通过像素比例缩放。最后传的数据是缩放后的像素*像素比*像素.厘米比获得实际厘米值传至api。
+<br/>4、研究模版之间的复制功能，可以直接传递相应被复制模版的api值，类似编辑。
 
 ###2014/06/03更新
 1、完成了新建和编辑的代码重构，分别从不同的API获取数据，分别通过post和put来新建和更新数据。
@@ -106,3 +107,5 @@ api地址
 'module' object has no attribute 'TaobaoLogisticTemplateLine'
 'module' object has no attribute 'TaobaoLogisticTemplate'
 ```
+
+

@@ -1,5 +1,5 @@
 ---
-date: 2014-05-26 15:26:40
+date: 2014-05-26 15:26:40(UTC+0800)
 layout: post
 title: JavaScript代码高亮测试
 thread: 2

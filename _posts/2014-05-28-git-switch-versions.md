@@ -1,5 +1,5 @@
 ---
-date: 2014-05-28 10:01:40
+date: 2014-05-28 10:01:40(UTC+0800)
 layout: post
 title: 入门Git -- 版本切换
 thread: 7

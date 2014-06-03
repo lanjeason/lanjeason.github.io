@@ -1,5 +1,5 @@
 ---
-date: 2014-05-27 11:23:40
+date: 2014-05-27 11:23:40(UTC+0800)
 layout: post
 title: JS基础 -- 数据类型
 thread: 6
