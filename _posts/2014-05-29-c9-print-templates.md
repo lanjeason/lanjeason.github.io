@@ -101,7 +101,7 @@ api地址
 ###2014/06/03更新
 1、完成了新建和编辑的代码重构，分别从不同的API获取数据，分别通过post和put来新建和更新数据。
 <br/>2、拖动后数据获取成功，但是后期需要改进拖动的代码。
-3、上传新数据发生错误需要解决，影响后期数据获取。
+<br/>3、上传新数据发生错误需要解决，影响后期数据获取。
 
 ```javascript
 'module' object has no attribute 'TaobaoLogisticTemplateLine'
