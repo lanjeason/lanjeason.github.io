@@ -96,3 +96,13 @@ api地址
 <br/>1、新建按钮直接获取fileds初始化状态，编辑获取已有模版数据，目前已经完成filed的拖动，后期还需要设定filed的拖动范围。
 <br/>2、图片载入通过动态下拉框选择载入。拖动后获取top、left、filedname等数据。
 <br/>3、获取图片的实际宽度和传入电脑中的像素值，获得厘米和像素的比例值，再通过像素比例缩放。最后传的数据是缩放后的像素*像素比*像素厘米比获得实际厘米值传至api。
+
+###2014/06/03更新
+1、完成了新建和编辑的代码重构，分别从不同的API获取数据，分别通过post和put来新建和更新数据。
+<br/>2、拖动后数据获取成功，但是后期需要改进拖动的代码。
+3、上传新数据发生错误需要解决，影响后期数据获取。
+
+```javascript
+'module' object has no attribute 'TaobaoLogisticTemplateLine'
+'module' object has no attribute 'TaobaoLogisticTemplate'
+```
