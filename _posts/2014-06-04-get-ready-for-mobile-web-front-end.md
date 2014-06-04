@@ -22,4 +22,94 @@ tags: 移动Web
 ##响应式Web开发
 响应式web开发不是一项开创性的技术变革，简单地说，响应式web设计采用了媒体查询、流式布局、液态图片三项技术，把它们组合在一起来制作页面，使得页面不只在传统桌面，在平板电脑和手机上，各种不同的分辨率都能够完美显示。
 
+#移动端需要注意的
+##特殊的meta标签
+因为现在我们用的智能手机（iOS，Android）的浏览器都是基于webkit内核，这里有一些针对webkit的特殊meta标签，在开发移动端web是起到很重要的作用。
+
+```html
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+```
+
+<br/>强制让文档的宽度与设备的宽度保持1:1，并且文档最大的宽度比例是1.0，且不允许用户点击屏幕放大浏览。
+
+```html
+<meta content="yes" name="apple-mobile-web-app-capable" />
+```
+
+<br/>iphone设备中的safari私有meta标签，它表示：允许全屏模式浏览。
+
+```html
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+```
+
+<br/>iphone的私有标签，它指定的iphone中safari顶端的状态条的样式。
+
+```html
+<meta content="telephone=no" name="format-detection" />
+```
+
+<br/>告诉设备忽略将页面中的数字识别为电话号码。
+
+```html
+<meta content="email=no" name="format-detection" />
+```
+
+<br/>Android中禁止自动识别页面中的邮件地址，iOS中不会自动识别邮件地址。
+
+##百分百布局
+拿到设计师的640px（以iPhone4的比例做的设计稿）的设计稿后，它的实际大小应该是减半的，所以在写代码时一切的高度／字号都要是设计稿的1/2。接着说百分比布局：
+在做移动web页面时，我们要用百分比布局来实现自适应屏幕宽度。那我想要一个元素100%显示，又必须有一个固定的padding-left／padding-right，还有1px的边框，怎么办？css3为我们提供了box-sizing属性：
+
+```css
+element{
+    width: 100%;
+    padding-left: 10px;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    border: 1px solid blue;
+}
+```
+
+##rem设置字体大小
+以根节点为准，不会变动
+
+##一般效果
+圆角
+
+```css
+element{
+    border: 1px solid blue;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+```
+
+渐变
+
+```css
+element{
+    background-image: -moz-linear-gradient(top, #2288cc, #389de2); /* Firefox */
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #389de2), color-stop(1, #2288cc)); /* Saf4+, Chrome */
+}
+```
+
+去掉手持设备点击时出现的透明层 （一般会在头部做格式化）
+
+```css
+a,button,input{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+}
+```
+
+改变盒子模型
+
+```css
+element{
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+```
+
 未完待续。。。
