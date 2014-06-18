@@ -70,12 +70,10 @@ alert(cat.type);
 cat.jump();
 cat.eat();
 
-//继承开始，实例化下就可以继承了，有点略后悔，之前做的初始化引导模块就是这么写的，居然不知道这就是原型和继承，希望好运来临
+//继承开始，实例化下就可以继承了，有点略后悔，之前做的初始化引导模块就是这么写的，居然不知道这就是原型和继承
 function Dog(){};
 Dog.prototype = new Animal("Henry");
 var dog = new Dog();
 dog.jump();
 dog.eat();
 ```
-
-但愿好远来临，给次机会。
