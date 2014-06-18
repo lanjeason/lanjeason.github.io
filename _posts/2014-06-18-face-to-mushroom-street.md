@@ -72,13 +72,13 @@ for(i = 0 ; i < 10 ; ++i){
 		console.log(i+1);
 };//输出1——10，这样是不等待一次性输出
 
-(function outPut(i){
+(function write(i){
     if(i<10){
 		console.log(i);
 		i++;
-		setTimeout(outPut, 1000,i);
+		setTimeout(write,1000,i);
 	}
-})(0)//用闭包的手法实现从0——9每隔1s的输出
+})(0)//看了下闭包的用法，是不是用闭包的手法实现从0——9每隔1s的输出
 ```
 
 ###原型和继承
