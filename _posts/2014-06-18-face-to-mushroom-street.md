@@ -61,7 +61,8 @@ for(i = 0 ; i < 10 ; i++){
 输出10个10，for的循环很快小于1s，但是setTimeout是异步的，当1s后，循环结束，并且i已经为10了，所以输出10个10。
 ps：将1s缩短也是同样的结果。
 
-<br/>补充：因为setTimeout是异步的，所以可以看成是两个小程序，一个负责i的plus，一个负责setTimeout。而i会在极其短的时间内变成10，setTimeout里的函数运行时，10个10就等待着一跃而出；
+<br/>补充：因为setTimeout是异步的，所以可以看成是两个小程序，一个负责i的plus，一个负责setTimeout。而i会在极其短的时间内变成10，setTimeout里的函数运行时，10个10就等待着一跃而出。
+
 ```javascript
 for(i = 0 ; i < 10 ; ++i){
 	console.log(i);
