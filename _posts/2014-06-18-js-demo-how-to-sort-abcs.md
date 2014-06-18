@@ -1,0 +1,81 @@
+---
+date: 2014-06-18 15:02:40(UTC+0800)
+layout: post
+title: 蘑菇街总结
+thread: 19
+categories: jsdemo
+tags: jsdemo
+---
+
+###js排序字母，遗憾的是我能想到ascii，为何没想着自己给他们定义呢？送上js操作字母的排序
+
+```javascript
+var abc = ['c','a','b','d','e','f']; //当然这个方法对于多个字母组成的字符串也是可以的
+var obj = {a:0,b:1,c:2,d:3,e:4,f:5}; 
+var obj1 = {0:'a',1:'b',2:'c',3:'d',4:'e',5:'f'}; 
+for(var index in abc){ 
+	var abc1 = abc[index]; 
+	var abc3 = ""; 
+	for(var i = 0; i< abc1.length; i ++ ){ 
+		abc3 += obj[abc1[i]]; 
+	}; 
+	abc[index] = abc3;
+};
+abc.sort();
+for(var index in abc){ 
+	var abc1 = abc[index]; 
+	var abc3 = ""; 
+	for(var i = 0; i< abc1.length; i ++ ){ 
+		abc3 += obj1[abc1[i]]; 
+	}; 
+	abc[index] = abc3 
+}
+console.log(abc);
+```
+
+###setTimeout()
+
+```javascript
+for(i = 0 ; i < 10 ; i++){
+	setTimeout(function(){
+		console.log(i);
+	},1000);
+};
+```
+
+输出10个10，for的循环很快小于1s，但是setTimeout是异步的，当1s后，循环结束，并且i已经为10了，所以输出10个10。
+ps：将1s缩短也是同样的结果。
+
+###原型和继承
+回去翻了翻书，原来我的项目里都在用这个，居然这个就是原型和继承，所以书还是得往细了看，别不知道自己码的是什么，也不知道为什么这个码
+
+```javascript
+//创建一个类并定义属性和方法
+function Animal(name){
+    this.name = name;
+}
+
+Animal.prototype = {   
+    type : 'cat',
+    jump : function(){
+        alert (this.name + " is jumping...");
+    },
+    eat : function(){
+        alert (this.name + " is eatting...");            
+    }
+}
+var cat = new Animal("Kate");
+alert(cat.name);
+alert(cat.type);
+cat.jump();
+cat.eat();
+
+//继承开始，实例化下就可以继承了，有点略后悔，之前做的初始化引导模块就是这么写的，居然不知道这就是原型和继承，希望好运来临
+function Dog(){};
+Dog.prototype = new Animal("Henry");
+var dog = new Dog();
+dog.jump();
+dog.eat();
+```
+
+但愿好远来临，给次机会。
