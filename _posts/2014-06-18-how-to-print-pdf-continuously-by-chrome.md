@@ -68,6 +68,9 @@ function generate_form_and_submit(id_text,addr_text,contact_name_text,conutry_te
 }
 ```
 
+###父页面弹出子页面进行数据传递
+父页面内的变量必须为全局变量，子页面只需调用变量即可
+
 ###全部代码，欢迎补充交流
 
 ```html
@@ -75,6 +78,8 @@ function generate_form_and_submit(id_text,addr_text,contact_name_text,conutry_te
 ```
 
 ```javascript
+//父页面只需open(子页面)即可并且定义全局变量供子页面调取
+//下面是子页面的js
 var i = 0;
 var iframe;
 var dataChild;
@@ -97,7 +102,7 @@ var id;
 
 function pdf_loaded(){
     var frm = iframe.contentWindow;
-    frm.print();
+    frm.print();//打印并阻塞
     if (i >= (dataChild.logistic_documents.length - 1)){
         // window.close();
         return;
@@ -118,13 +123,13 @@ function pdf_loaded(){
     receiver_zip = dataChild.logistic_documents[i].receiver_zip;
     zip = dataChild.logistic_documents[i].zip;
     id = dataChild.logistic_documents[i].taobao_logistic_template_id;
-    generate_form_and_submit(id,addr,contact_name,conutry,memo,phone,province,receiver_address,receiver_city,receiver_district,receiver_mobile,receiver_name,receiver_state,receiver_zip,zip);
+    generate_form_and_submit(id,addr,contact_name,conutry,memo,phone,province,receiver_address,receiver_city,receiver_district,receiver_mobile,receiver_name,receiver_state,receiver_zip,zip);//载入pdf，等待加载后打印
 }
 
 $(document).ready(function(){
     iframe = document.getElementById('printIframe2');
-    iframe.addEventListener('load', pdf_loaded);
-    dataChild = window.opener.dataChild;
+    iframe.addEventListener('load', pdf_loaded);//创建load事件监听
+    dataChild = window.opener.dataChild;//调用父页面的变量
     TokenChild = window.opener.TokenChild;
     addr = dataChild.logistic_documents[0].addr;
     contact_name = dataChild.logistic_documents[0].contact_name;
@@ -141,9 +146,9 @@ $(document).ready(function(){
     receiver_zip = dataChild.logistic_documents[0].receiver_zip;
     zip = dataChild.logistic_documents[0].zip;
     id = dataChild.logistic_documents[0].taobao_logistic_template_id;
-    generate_form_and_submit(id,addr,contact_name,conutry,memo,phone,province,receiver_address,receiver_city,receiver_district,receiver_mobile,receiver_name,receiver_state,receiver_zip,zip);    
+    generate_form_and_submit(id,addr,contact_name,conutry,memo,phone,province,receiver_address,receiver_city,receiver_district,receiver_mobile,receiver_name,receiver_state,receiver_zip,zip);//第一次加载    
 });
-
+//加载pdf的function
 function generate_form_and_submit(id_text,addr_text,contact_name_text,conutry_text,memo_text,phone_text,province_text,receiver_address_text,receiver_city_text,receiver_district_text,receiver_mobile_text,receiver_name_text,receiver_state_text,receiver_zip_text,zip_text){
     var url = "/api/taobao_logistic_templates/" + id_text + "?action=generate&format=pdf";
     var form = $("<form>");
@@ -169,4 +174,5 @@ function generate_form_and_submit(id_text,addr_text,contact_name_text,conutry_te
     form.serializeArray();
     form.submit();
 }
+//加载pdf的function
 ```
