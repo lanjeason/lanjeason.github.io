@@ -33,6 +33,21 @@ for(var index in abc){
 console.log(abc);
 ```
 
+来个更简单的，控制台测试了单字母字符串和多字母字符串的加减，显然是NAN。但是比较大小则会返回false和true，这使我非常惊喜。就不需要赋值和用双重循环来写这个比较算法了，而且移动位子我想到了冒泡的方法，只需要返回1或者-1即可移位，热泪盈眶啊。
+
+```javascript
+function compare_abc(val1,val2){
+	if(val1 > val2){
+		return 1;
+	}else if(val1 < val2){
+		return -1
+	}
+};
+var abc = new Array("d","e","a","c","1","3","4","as");
+abc.sort(compare_abc);
+console.log(abc);
+```
+
 ###setTimeout()
 
 ```javascript
@@ -45,6 +60,25 @@ for(i = 0 ; i < 10 ; i++){
 
 输出10个10，for的循环很快小于1s，但是setTimeout是异步的，当1s后，循环结束，并且i已经为10了，所以输出10个10。
 ps：将1s缩短也是同样的结果。
+
+<br/>补充：因为setTimeout是异步的，所以可以看成是两个小程序，一个负责i的plus，一个负责setTimeout。而i会在极其短的时间内变成10，setTimeout里的函数运行时，10个10就等待着一跃而出；
+```javascript
+for(i = 0 ; i < 10 ; ++i){
+	console.log(i);
+};
+
+for(i = 0 ; i < 10 ; ++i){
+		console.log(i+1);
+};//输出1——10，这样是不等待一次性输出
+
+(function outPut(i){
+    if(i<10){
+		console.log(i);
+		i++;
+		setTimeout(outPut, 1000,i);
+	}
+})(0)//用闭包的手法实现从0——9每隔1s的输出
+```
 
 ###原型和继承
 回去翻了翻书，原来我的项目里都在用这个，居然这个就是原型和继承，所以书还是得往细了看，别不知道自己码的是什么，也不知道为什么这个码
