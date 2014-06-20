@@ -1,7 +1,7 @@
 ---
 date: 2014-06-20 16:27:40(UTC+0800)
 layout: post
-title: 重拾JavaScript - 计划（随时更新）
+title: 重拾JavaScript - 计划大纲（随时更新）
 thread: 20
 categories: jsStudyLog
 tags: jsStudyLog
