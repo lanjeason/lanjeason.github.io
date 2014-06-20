@@ -7,3 +7,4 @@ categories: canvas
 tags: html5 canvas
 ---
 
+内容还在作者的脑海里，再等等。
