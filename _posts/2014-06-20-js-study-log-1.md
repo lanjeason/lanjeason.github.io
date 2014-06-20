@@ -1,5 +1,5 @@
 ---
-date: 2014-06-20 16:27:40(UTC+0800)
+date: 2014-06-20 16:57:40(UTC+0800)
 layout: post
 title: 重拾JavaScript - 类型、值和变量（随时更新）
 thread: 20
