@@ -70,3 +70,37 @@ o.push(3);
 这即是构造函数。JavaScript 中的 new 操作符有三个基本任务。首先，它创建新的空对象。接下来，它将设置新对象的 __proto__ 属性，以匹配所调用函数的原型属性。最后，操作符调用函数，将新对象作为“this”引用传递。
 
 ###构造函数
+构造函数的特殊性质：1、通常构造函数的首字母是大写的（让识别构造函数变得更容易）；2、构造函数通常要和 new 操作符结合，用来构造新对象。
+
+<br/>例如之前写的obj：
+
+```javascript
+var Obj = function(hands,head) {
+	this.hands = hands;
+	this.head = head;
+	this.add = function(otherMan) {
+		this.hands += otherMan.hands;
+		this.head += otherMan.head;
+	};
+};
+
+var man1 = new Obj(1,2);
+var man2 = new Obj(3,4);
+man1.add(man2);
+```
+
+<br/>有了继承，应该将 add 函数继承到Obj原型中，修改Obj.prototype:
+
+```javascript
+var Obj = function(hands,head) {
+	this.hands = hands;
+	this.head = head;
+};
+Obj.prototype.add = function (otherMan) {
+	this.hands += otherMan.hands;
+	this.head += otherMan.head;
+};
+var man1 = new Obj(1,2);
+var man2 = new Obj(3,4);
+man1.add(man2);
+```
