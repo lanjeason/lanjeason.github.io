@@ -56,3 +56,17 @@ Array.prototype != null
 
 第一条说明数组是函数；第二条说明数组的原型和别的函数的原型是一样的；第三条说明Array函数都有一个 prototype 属性，而这个 prototype 属性指向一个有效的对象。 
 <br/> __proto__和prototype的区别：Array.__proto__ 提供的是 数组原型 – 请把它当作 Array 函数所继承的对象；Array.protoype 提供的的是 所有数组的原型，它提供的是像 array 这样数组对象的原型对象，也包含了所有数组将会继承的方法。
+
+```javascript
+var o = new Array();
+o.push(3);
+//等价于下面
+var o = {};
+o.__proto__ = Array.prototype;//o的原型是继承所有数组
+Array.call(o);
+o.push(3);
+```
+
+这即是构造函数。JavaScript 中的 new 操作符有三个基本任务。首先，它创建新的空对象。接下来，它将设置新对象的 __proto__ 属性，以匹配所调用函数的原型属性。最后，操作符调用函数，将新对象作为“this”引用传递。
+
+###构造函数
