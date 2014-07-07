@@ -9,6 +9,7 @@ tags: jsStudyLog
 
 ###什么是闭包
 概念定义说法非常多，先写一个纯正闭包
+
 ```javascript
 function a(){
 	var i=0;
@@ -20,6 +21,7 @@ function a(){
 var c = a();
 c();
 ```
+
 这个函数有几个特点：
 </br>1、函数`b`嵌套在函数`a`中；
 </br> 2、函数`a`返回函数`b`。
