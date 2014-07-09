@@ -9,7 +9,7 @@ tags: jsStudyLog
 
 
 ```javascript
-<script>//在用for-in的时候，如何删选出自身的属性。
+//在用for-in的时候，如何删选出自身的属性。
 	var man = {
 		hands : 2,
 		legs : 2,
@@ -24,9 +24,9 @@ tags: jsStudyLog
 			document.write(i,":",man[i],"</br>");
 		};
 	};
-</script>
 
-<script type="text/javascript">
+
+
 	var inspect_me = 0,
 		result = '';
 	switch(inspect_me){
@@ -42,9 +42,9 @@ tags: jsStudyLog
 		result = "unknown";
 		document.write(result);
 	}
-</script>
 
-<script type="text/javascript">
+
+
 	var Person = function(name){
 		this.name = name;
 		// this.say = function(){
@@ -56,19 +56,19 @@ tags: jsStudyLog
 	}//这个函数在多个实例中不会变化，所以单独拿出来通用，对于重用的都应该放在原型中
 	var personSay = new Person("llj");
 	personSay.say();
-</script>
-<script type="text/javascript">
-function a(){
-	var i=0;
-	function b(){
-		console.log(++i);
+
+	function a(){
+		var i=0;
+		function b(){
+			console.log(++i);
+		}
+		return b;
 	}
-	return b;
-}
-var c = a();
-c();//最简单的闭包
-</script>
-<script type="text/javascript">
+	var c = a();
+	c();//最简单的闭包
+
+
+
 	function foo(){
 		console.log("global foo");
 	}
@@ -88,9 +88,10 @@ c();//最简单的闭包
 		};
 	}
 	whoisme();
-</script>
 
-<script type="text/javascript">//即时函数
+
+
+	//即时函数
 	var getResult = (function() {
   		var res = 2+2;
   		return (function(){
@@ -98,9 +99,9 @@ c();//最简单的闭包
 		}());
 	}());
 	console.log(getResult);
-</script>
 
-<script type="text/javascript">//即时函数
+
+
 	var MYAPP = MYAPP || {};
 	MYAPP.namespace = function (ns_string){
 		var parts = ns_string.split('.'),
@@ -120,5 +121,4 @@ c();//最简单的闭包
 	};
 	var modules1 = MYAPP.namespace("modules.modules1");//都是对象
 	modules1.function = "1";
-</script>
 ```
