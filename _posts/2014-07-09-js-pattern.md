@@ -57,6 +57,8 @@ tags: jsStudyLog
 	var personSay = new Person("llj");
 	personSay.say();
 
+
+
 	function a(){
 		var i=0;
 		function b(){
