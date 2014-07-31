@@ -2,7 +2,7 @@
 date: 2014-07-07 16:23:40(UTC+0800)
 layout: post
 title: 初探闭包
-thread: 20
+thread: 23
 categories: jsStudyLog
 tags: jsStudyLog
 ---

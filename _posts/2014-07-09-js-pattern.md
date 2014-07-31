@@ -2,7 +2,7 @@
 date: 2014-07-09 16:23:40(UTC+0800)
 layout: post
 title: JS模式的学习代码片段
-thread: 20
+thread: 24
 categories: jsStudyLog
 tags: jsStudyLog
 ---

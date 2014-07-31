@@ -2,7 +2,7 @@
 date: 2014-06-02 23:32:40(UTC+0800)
 layout: post
 title: 开发之外 -- 关于程序员练习打字
-thread: 13
+thread: 15
 categories: 杂谈
 tags: 打字
 ---
