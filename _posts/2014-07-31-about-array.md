@@ -24,9 +24,9 @@ alert(array.toString());              //返回字符串，并用逗号隔开，�
 alert(array.valueOf());               //返回字符串，并用逗号隔开，没有引号
 ```
 
-1. 由于`alert()`要接收字符串参数，在用`valueOf()`方法的时候会在后台调用`toString()`方法，所以返回得到一样的结果。
-2. `toLocaleString()`也是返回字符串，可区别于`toString()`，自定义返回函数。
-3. 可以用`join()`来改变分隔符`array.join("||");`
+- 由于`alert()`要接收字符串参数，在用`valueOf()`方法的时候会在后台调用`toString()`方法，所以返回得到一样的结果。
+- `toLocaleString()`也是返回字符串，可区别于`toString()`，自定义返回函数。
+- 可以用`join()`来改变分隔符`array.join("||");`
 ##栈、队列方法
 ```javascript
 var array = [1,2,3,4,5,6];
@@ -35,16 +35,18 @@ array.pop();			   //获取数组尾元素（删除），返回尾元素
 array.unshift("-1"，"0");  //数组头插入两个元素，返回长度
 array.shift();             //获取数组头元素（删除），返回头元素
 ```
-1. IE7以及更早的版本总是返回undefined，而不是长度，用`array.length()`代替。
-2. IE8在非兼容模式下会返回正确的长度
+
+- IE7以及更早的版本总是返回undefined，而不是长度，用`array.length()`代替
+- IE8在非兼容模式下会返回正确的长度
 ##重排序方法
 ```javascript
 var array = [1,2,3,4,5,6];
 array.reverse();       //反向排序
 array.sort();          //按升序排列数组，会调用每个数组项，但是有bug
 ```
-1. `sort()`会调用每个数组项的`toString()`转型方法，确定比较得到的字符串，以确定如何排序，即使是数值，比较的也是字符串！！！
-2. 比较方法：
+
+- `sort()`会调用每个数组项的`toString()`转型方法，确定比较得到的字符串，以确定如何排序，即使是数值，比较的也是字符串！！！
+- 比较方法：
 
 ```javascript
 function compare(value1,value2) {
@@ -61,15 +63,17 @@ values.sort(compare);
 console.log(values);
 //返回 [1, 2, 3, 4, "5", "a", "e", "z"] 升序，先排数字后排字母
 ```
-3. 如果遇到中文，在中文之前的数组元素不会进行排序
+
+- 如果遇到中文，在中文之前的数组元素不会进行排序
 ##操作方法
 ```javascript
 var a = [1,2,3,4,5,6,7,8];
 var b = a.concat("9",[10,11],[12,"13"],14,"15");
 console.log(b);
 ```
-1. b是a生成a的数组的副本，并添加后续数组元素
-2. a不会发生变化
+
+- b是a生成a的数组的副本，并添加后续数组元素
+- a不会发生变化
 
 ```javascript
 var a = [1,2,3,4,5,6,7];
@@ -78,7 +82,8 @@ var c = a.slice(1,4);
 console.log(b);			//返回[2,3,4,5,6,7]
 console.log(c);	        //返回[2,3,4]，也就是返回 4 - 1 = 3个
 ```
-1. 如果是`slice(-2,-1)`，在长度为5的数组中与返回`slice(3,4)`相同，5 + -2 = 3 ,5 + -1 = 4，如果结束位置小于开始位置，返回空数组。
+
+- 如果是`slice(-2,-1)`，在长度为5的数组中与返回`slice(3,4)`相同，5 + -2 = 3 ,5 + -1 = 4，如果结束位置小于开始位置，返回空数组
 
 ```javascript
 //数组中最强大的方法splice()；可以删除、插入、替换
@@ -100,14 +105,15 @@ console.log(a.lastIndexOf(4,4))  //3
 console.log(a.lastIndexOf(4,6))  //5
 console.log(a.lastIndexOf(4,10)) //10 从右向左第一次出现
 ```
-1. IE 9+ 兼容
+
+- IE 9+ 兼容
 ##迭代方法
 
 1. `every()`把每项给函数，全部返回true，则返回true
-2. `some()`把每项给函数，有返回true，则返回true
-3. `filter`把每项给函数，返回true的组成数组返回
-4. `map()`把每项给函数，把每次调用结果组成数组返回
-5. `forEach()`把每项给函数，无返回
+1. `some()`把每项给函数，有返回true，则返回true
+1. `filter`把每项给函数，返回true的组成数组返回
+1. `map()`把每项给函数，把每次调用结果组成数组返回
+1. `forEach()`把每项给函数，无返回
 
 ```javascript
 var a = [1,2,3,4,5,6];
@@ -128,7 +134,8 @@ var forEachFun = a.forEach(function(item,index,array) {
 });
 //false true [3, 4, 5, 6] [false, false, true, true, true, true] undefined
 ```
-1. IE 9+ 兼容
+
+- IE 9+ 兼容
 ##缩小方法
 
 ```javascript
@@ -139,6 +146,7 @@ var sum = a.reduce(function(prev,cur,index,array) {
 });
 //15 reduceRight()只是方向相反，其余全部相同。
 ```
-1. IE 9+ 兼容
+
+- IE 9+ 兼容
 
 
