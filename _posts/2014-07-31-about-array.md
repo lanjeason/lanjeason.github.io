@@ -37,6 +37,29 @@ array.shift();             //获取数组头元素（删除），返回头元素
 ```
 1. IE7以及更早的版本总是返回undefined，而不是长度，用`array.length()`代替。
 2. IE8在非兼容模式下会返回正确的长度
-##重排序方法：
-
+##重排序方法
+```javascript
+var array = [1,2,3,4,5,6];
+array.reverse();       //反向排序
+array.sort();          //按升序排列数组，会调用每个数组项，但是有bug
+```
+1. `sort()`会调用每个数组项的`toString()`转型方法，确定比较得到的字符串，以确定如何排序，即使是数值，比较的也是字符串！！！
+2. 比较方法：
+```javascript
+function compare(value1,value2) {
+	if(value1 < value2) {
+		return -1;
+	} else if (value1 > value2) {
+		return 1;
+ 	} else {
+		return 0;
+	}
+}
+var values = [1,2,3,4,"5","a","z","e"];
+values.sort(compare);
+console.log(values);
+//返回 [1, 2, 3, 4, "5", "a", "e", "z"] 升序，先排数字后排字母
+```
+3. 如果遇到中文，在中文之前的数组元素不会进行排序
+##操作方法
 
