@@ -87,8 +87,58 @@ splice(0,0,"a");    //第0个位置插入"a"
 splice(0,1,"a");    //删除数组第0个位子开始的1个元素，并插入"a"
 ``` 
 ##位置方法
+```javascript
+var a = [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1];
+console.log(a.indexOf(4)); //从前面开始数，第一次出现的位置 3
+console.log(a.lastIndexOf(4)); //从后面开始数，最后一次出现的位置 3
 
+var a = [1,2,3,4,5,4,6,7,8,9,4,10,11];
+console.log(a.indexOf(4,3))； //3
+console.log(a.indexOf(4,4))； //5
+console.log(a.indexOf(4,6))； //10 从左向右第一次出现
+console.log(a.lastIndexOf(4,4))  //3 
+console.log(a.lastIndexOf(4,6))  //5
+console.log(a.lastIndexOf(4,10)) //10 从右向左第一次出现
+```
+1. IE 9+ 兼容
 ##迭代方法
+
+1. `every()`把每项给函数，全部返回true，则返回true
+2. `some()`把每项给函数，有返回true，则返回true
+3. `filter`把每项给函数，返回true的组成数组返回
+4. `map()`把每项给函数，把每次调用结果组成数组返回
+5. `forEach()`把每项给函数，无返回
+
+```javascript
+var a = [1,2,3,4,5,6];
+var everyFun = a.every(function(item,index,array) {
+	return (item > 2);
+});
+var someFun = a.some(function(item,index,array) {
+	return (item > 2);
+});
+var filterFun = a.filter(function(item,index,array) {
+	return (item > 2);
+});
+var mapFun = a.map(function(item,index,array) {
+	return (item > 2);
+});
+var forEachFun = a.forEach(function(item,index,array) {
+	return (item > 2);
+});
+//false true [3, 4, 5, 6] [false, false, true, true, true, true] undefined
+```
+1. IE 9+ 兼容
 ##缩小方法
+
+```javascript
+//4个参数，前一个值，当前值，项的索引，数组对象
+var a = [1,2,3,4,5];
+var sum = a.reduce(function(prev,cur,index,array) {
+	return prev + cur;
+});
+//15 reduceRight()只是方向相反，其余全部相同。
+```
+1. IE 9+ 兼容
 
 
