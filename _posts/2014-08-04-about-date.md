@@ -9,6 +9,7 @@ tags: JS基础
 
 ##Date 类型
 - 创建默认当前日期
+
 ```javascript
 var now = new Date();
 console.log(now);
@@ -16,10 +17,11 @@ console.log(now);
 ```
 
 - 创建固定日期
+
 ```javascript
 var parseDate = new Date(Date.parse("May 25, 2004"));
 var parseDate2 = new Date("May 25, 2004");
-var utcDate = new Date(Date.UTC("2010, 8, 14, 17, 55, 55"));
+var utcDate = new Date(Date.UTC("2005, 8, 14, 17, 55, 55"));
 document.write(parseDate + "<br/>" + parseDate2 + "<br/>" + utcDate);
 //前两种是一样的，后一种在Chrome中调试出Invalid Date
 ```
