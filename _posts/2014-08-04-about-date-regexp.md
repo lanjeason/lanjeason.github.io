@@ -1,7 +1,7 @@
 ---
 date: 2014-08-04 14:39:40(UTC+0800)
 layout: post
-title: 引用类型 -- Date
+title: 引用类型 -- Date&&regExp
 thread: 26
 categories: JS基础
 tags: JS基础
