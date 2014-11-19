@@ -628,7 +628,10 @@ function draw1(){
 		'18768'
 	];
 	defen = defenArray[Math.floor(Math.random()*60)];
-		cax.stp();
+	if (defen == undefined || defen == null) {
+		defen = 27864;
+	}
+	cax.stp();
 	}
 }
 canvas.prototype.fangkuai=function(num,fkx,fky,fkss){
