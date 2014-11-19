@@ -1,0 +1,377 @@
+---
+date: 2014-11-19 20:54:40(UTC+0800)
+title: game
+thread: 13
+categories: jsdemo
+tags: jsdemo
+---
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>游戏</title>
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+</head>
+<style>
+body{
+	text-align:center;
+	margin:0px;
+	padding:0px;
+	background:url(http://wap.gaoxy.org/youxi/bj.jpg) repeat;
+	overflow:hidden;
+}
+#fcan{
+	margin:0 auto;
+	position:relative;
+	padding:0px;
+	text-align:center;
+}
+ body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+
+</style>
+<body>
+<div id="fcan"></div>
+<audio  src="http://wap.gaoxy.org/youxi/111.mp3"  loop autoplay="true"></audio>
+
+<script src="/media/js/canvas.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+gameHost = 'http://wap.gaoxy.org/youxi/';
+document.body.addEventListener("touchmove", function(event) {
+					event.preventDefault();
+		},false);
+//var objyy=document.getElementById('yinyuep');
+var ch=document.documentElement.clientHeight;
+var cw=ch*720/1280;
+var sxw=cw*515/720;
+var sxh=ch*677/1280;
+var nf=cw/6;
+var cf=ch/10;
+var df=ch*9/10;
+var knum=5;
+var tm=40;
+var ceng=0;
+var bian=0;
+var shijian=0;
+var defen=0;
+var miao=0;
+var shijian1=0;
+var peng=0;
+var a=10;
+var kx=0;
+var ky=cf;
+var ky2=cf;
+var kx1=0;
+var kx2=0;
+var vx=4;
+var vyun=0.4;
+var kaishi=1;
+var fangxiang=1;
+var down=1;
+var jpshuoming=1;
+var yxshuoming=1;
+var jieshu=1;
+var shijian2=0;
+var stopss=1;
+var paihang=1;
+var scurl='http://ranking.luobo1.com/html/admin/ranking/upload.json?';
+var yunx=new Array();
+var yuny=new Array();
+var fks=new Array();
+var jilu=new Array();
+var jilu1=new Array();
+var jilu2=new Array();
+document.getElementById('fcan').style.width=cw+'px';
+cax=new canvas('fcan',cw,ch);
+var bark = new Image();
+bark.src = gameHost + "images/index.png";
+var phimg = new Image();
+phimg.src = gameHost + "images/ph.png";
+sbj=new Image();
+sbj.src=gameHost + 'images/youxi.png';
+yun=new Image();
+yun.src=gameHost + 'images/yun.png';
+sximg=new Image();
+sximg.src=gameHost + 'images/shuoming.png';
+jpimg=new Image();
+jpimg.src=gameHost + 'images/jpshuoming.png';
+stimg=new Image();
+stimg.src=gameHost + 'images/jieshu.png';
+fximg=new Image();
+fximg.src=gameHost + 'images/fx.png';
+bark.onload=function(){
+cax.shouye();
+}
+yunw=cw*131/720;
+yunh=ch*83/1280;
+kuai=new Array();
+kuai[0]=new Image();
+kuai[0].src=gameHost + 'images/1.png';
+kuai[1]=new Image();
+kuai[1].src=gameHost + 'images/2.png';
+kuai[2]=new Image();
+kuai[2].src=gameHost + 'images/3.png';
+kuai[3]=new Image();
+kuai[3].src=gameHost + 'images/4.png';
+kuai[4]=new Image();
+kuai[4].src=gameHost + 'images/5.png';
+document.getElementById('fcan').addEventListener('touchstart',function(e){
+	//objyy.pause();
+	//objyy.play();
+	 var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+     var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+	 touch=e.touches[0];
+     var x = touch.pageX || touch.clientX + scrollX;
+     var y = touch.pageY || touch.clientY + scrollY;
+	 x=x-(document.documentElement.clientWidth-cw)/2;
+	 var px1=cw*301/720;
+	 var px2=cw*441/720;
+	 var py1=ch*888/1280;
+	 var py2=ch*1034/1280;
+	 var px11=cw*44/720;
+	 var px21=cw*335/720;
+	 var py11=ch*1124/1280;
+	 var py21=ch*1202/1280;
+	 var px12=cw*382/720;
+	 var px22=cw*670/720;
+	 var py12=ch*1124/1280;
+	 var py22=ch*1202/1280;
+	 var pbian=(cw-sxw)/2;
+	 var pfx1=pbian + sxw*215/515;
+	 var pfx2=pbian + sxw*301/515;
+	 var pfy1=ch*56/100;
+	 var pfy2=ch*63/100;
+	 var pfx11=pbian + sxw*54/515;
+	 var pfx21=pbian + sxw*257/515;
+	 var pfx31=pbian + sxw*462/515;
+	 var jpx1=pbian+sxw*210/515;
+	 var jpx2=pbian+sxw*297/515;
+	 var jpy1=ch*44/100;
+	 var jpy2=ch*54/100;
+	 var pfy11=ch*57/100;
+	 var pfy21=ch*62/100;
+	 var spx1=pbian+sxw*128/515;
+	 var spx2=pbian+sxw*215/515;
+	 var spx3=pbian+sxw*304/515;
+	 var spx4=pbian+sxw*390/515;
+	 var spy1=ch*53/100;
+	 var spy2=ch*63/100;
+	 var phfx1=cw*440/1080;
+	 var phfx2=cw*640/1080;
+	 var phfy1=ch*1598/1920;
+	 var phfy2=ch;
+	 if(kaishi==1){
+	 	if(x>px1&&x<px2&&y>py1&&y<py2){
+			 knum=5;
+			 ceng=0;
+			bian=0;
+			shijian=0;
+			defen=0;
+			miao=0;
+			shijian1=0;
+			peng=0;
+			kx=0;
+			ky=cf;
+			ky2=cf;
+			kx1=0;
+			kx2=0;
+			vx=2;
+			fangxiang=1;
+			down=1;
+			jieshu=1;
+			shijian2=0;
+			stopss=1;
+			kaishi=2;
+			fks=new Array();
+			jilu=new Array();
+			jilu1=new Array();
+			jilu2=new Array();
+			yxshuoming=4;
+			jpshuoming=4;
+			paihang=4;
+			cax.play();
+		}
+	 }else if(kaishi==2){
+		 down=2;
+	 }
+	 if(yxshuoming==1){
+		 if(x>px11&&x<px21&&y>py11&&y<py21){
+			 kaishi=0;
+			 stopss=2;
+			 yxshuoming=2;
+			 jpshuoming=4;
+			 paihang=4;
+			 cax.shuoming();
+		 }
+	 }
+	 if(yxshuoming==2){
+		 if(x>pfx1&&x<pfx2&&y>pfy1&&y<pfy2){
+			 kaishi=1;
+			 stopss=1;
+			 yxshuoming=1;
+			 paihang=1;
+			 jpshuoming=1;
+			 clearInterval(cax.ani);
+			 cax.shouye();;
+		 }
+	 }
+	 if(jpshuoming==1){
+		 if(x>px12&&x<px22&&y>py12&&y<py22){
+			 kaishi=0;
+			 stopss=2;
+			 jpshuoming=2;
+			 yxshuoming=4;
+			 paihang=4;
+			 cax.jpshuoming();
+		 }
+	 }
+	 if(jpshuoming==2){
+		 if(x>spx1&&x<spx2&&y>spy1&&y<spy2){
+			 kaishi=1;
+			 stopss=1;
+			 jpshuoming=1;
+			 paihang=1;
+			 yxshuoming=1;
+			 clearInterval(cax.ani);
+			 cax.shouye();
+		 }else if(x>spx3&&x<spx4&&y>spy1&&y<spy2){
+			 kaishi=0;
+			 stopss=1;
+			 jpshuoming=4;
+			 yxshuoming=4;
+			 paihang=2;
+			 cax.paihang();
+		 }
+	 }
+	 if(yxshuoming==3){
+		 if(x>pfx11&&x<pfx21&&y>pfy11&&y<pfy21){
+			 clearInterval(cax.ani);
+			 knum=5;
+			 ceng=0;
+			bian=0;
+			shijian=0;
+			defen=0;
+			miao=0;
+			shijian1=0;
+			peng=0;
+			kx=0;
+			ky=cf;
+			ky2=cf;
+			kx1=0;
+			vx=2;
+			kx2=0;
+			fangxiang=1;
+			down=1;
+			jieshu=1;
+			shijian2=0;
+			stopss=1;
+			kaishi=2;
+			fks=new Array();
+			jilu=new Array();
+			jilu1=new Array();
+			jilu2=new Array();
+			yxshuoming=4;
+			jpshuoming=4;
+			paihang=4;
+			cax.play();
+		 }
+		 if(x>pfx21&&x<pfx31&&y>pfy11&&y<pfy21){
+			 clearInterval(cax.ani);
+			 kaishi=0;
+			 yxshuoming=3;
+			 stopss=2;
+			 jpshuoming=3;
+			 paihang=4;
+			 cax.can.clearRect(0,0,cw,ch);	
+			 cax.rect(cax.can,0,0,cw,ch,'','',sbj);
+			 cax.rect(cax.can,0,0,cw,ch,'','',fximg);
+		 }
+		 if(x>jpx1&&x<jpx2&&y>jpy1&&y<jpy2){
+			 kaishi=0;
+			 stopss=1;
+			 jpshuoming=4;
+			 yxshuoming=4;
+			 paihang=2;
+			 cax.paihang();
+		 }
+	 }
+	 if(paihang==2){
+		 if(x>phfx1&&x<phfx2&&y>phfy1&&y<phfy2){
+			 kaishi=1;
+			 stopss=1;
+			 jpshuoming=1;
+			 paihang=4;
+			 yxshuoming=1;
+			 clearInterval(cax.ani);
+			 cax.shouye();
+		 }
+	 }
+});
+		var imgUrl = "http://wap.gaoxy.org/youxi/images/index.png";
+        var lineLink = "http://wap.gaoxy.org/youxi/index.html";
+        var descContent = '快乐刺激的叠罗汉游戏一起来玩一玩';
+        var shareTitle = '快乐刺激的叠罗汉游戏一起来玩一玩';
+        var appid = '';
+         
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage',{
+                "appid": appid,
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                //_report('send_msg', res.err_msg);
+            })
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                   //_report('timeline', res.err_msg);
+            });
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo',{
+                "content": descContent,
+                "url": lineLink,
+            }, function(res) {
+                //_report('weibo', res.err_msg);
+            });
+        }
+        // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 发送给好友
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                shareFriend();
+            });
+            // 分享到朋友圈
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                shareTimeline();
+            });
+            // 分享到微博
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+                shareWeibo();
+            });
+        }, false);
+</script>
+</body>
+</html>
