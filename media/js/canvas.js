@@ -450,7 +450,7 @@ function draw1(){
 				if(j>0){
 					ceng++;
 					vx++;
-					defen=defen+ceng*j;
+					defen=defen+ceng*j*3;
 					if(kx1<kx){
 						kx1=kx;
 						kx2=kx1+j*nf;
@@ -470,7 +470,7 @@ function draw1(){
 				}
 			}else{
 				ceng++;
-				defen=defen+ceng*knum*3;
+				defen=defen+ceng*knum*2;
 				for(i=0;i<knum;i++){
 					jilu2[i]=jilu1[i];
 					jilu1[i]=jilu[i];
